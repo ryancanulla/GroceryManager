@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="utf-8">
+    <title>Things We Need</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <script src="js/controllers.js"></script>
+    <script src="lib/angular/angular.js"></script>
+</head>
+
+<body ng-controller="GroceryListController">
+    <div class="header">
+        <h2>Things We Need</h2>
+        <h4>Total Items: {{items.length}}</h4>
+    </div>
+
+    <ul class="itemsList">
+        <li ng-repeat="item in items">
+            <input type="checkbox" >
+            {{item.name}}
+        </li>
+    </ul>
+
+    <form class="form-horizontal">
+        <input type="text" ng-model="itemText" ng-model-instant>
+        <button class="btn" ng-click="addItem()"><i class="icon-plus"></i>Add</button>
+    </form>
+
+</body>
+</html>
