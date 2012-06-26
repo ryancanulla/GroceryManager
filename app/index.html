@@ -8,18 +8,19 @@
     <link rel="stylesheet" href="css/app.css">
 
     <script src="js/controllers.js"></script>
+    <script src="lib/underscore.js"></script>
     <script src="lib/angular/angular.js"></script>
 </head>
 
 <body ng-controller="GroceryListController">
     <div class="header">
         <h2>Things We Need</h2>
-        <h4>Total Items: {{items.length}}</h4>
+        <h4>Total Items: {{getTotalItems()}}</h4>
     </div>
 
     <ul class="itemsList">
         <li ng-repeat="item in items">
-            <input type="checkbox" >
+            <input type="checkbox" ng-model="item.done" >
             {{item.name}}
         </li>
     </ul>
@@ -29,5 +30,6 @@
         <button class="btn" ng-click="addItem()"><i class="icon-plus"></i>Add</button>
     </form>
 
+    <button class="btn-large" ng-click="clearItems()"><i class="icon-trash"></i>Clear Finished Items</button>
 </body>
 </html>
