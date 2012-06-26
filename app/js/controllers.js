@@ -11,14 +11,10 @@ function GroceryListController($scope) {
         }
     ];
 
-
-    $scope.getTotalItems = function() {
-        console.log("items" + $scope.items.length);
-        return $scope.items.length;
-    }
-
     $scope.addItem = function(item) {
-        $scope.items.push({name: $scope.itemText, done: false});
-        $scope.itemText = "";
+        if($scope.itemText != "") {
+            $scope.items.push({name: $scope.itemText, done: false});
+            $scope.itemText = "";
+        }
     }
 }
