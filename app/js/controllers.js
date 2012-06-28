@@ -1,5 +1,4 @@
 function GroceryListController($scope) {
-
     $scope.items = [
         {
             name: "Creamer",
