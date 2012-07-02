@@ -21,11 +21,16 @@ describe('Things I Need', function() {
     });
 
     it("should update the total items count when a new item is added", function() {
-        console.log(element('h2'));
+        expect(binding('getTotalItems()')).toBe("2");
+        input('itemText').enter('jacksparrow');
+        element('button:first').click();
+        expect(binding('getTotalItems()')).toBe("3");
     });
-//
-//    it("should clear finished items", function(){
-//        expect(1).toEqual(2);
-//    });
 
+    it("should clear out finished items", function() {
+        expect(binding('getTotalItems()')).toBe("2");
+        input('item.done').check();
+        element('button:last').click();
+        expect(binding('getTotalItems()')).toBe("0");
+    });
 });
